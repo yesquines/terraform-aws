@@ -70,7 +70,6 @@ resource "aws_nat_gateway" "nat_gw" {
   depends_on    = [aws_internet_gateway.igw_web]
 }
 
-
 resource "aws_route_table" "route_natgw" {
   vpc_id = aws_vpc.vpc_web.id
   route {
@@ -80,8 +79,13 @@ resource "aws_route_table" "route_natgw" {
   tags = { Name = "route-natgw" }
 }
 
-resource "aws_route_table_association" "association_natgw" {
+resource "aws_route_table_association" "association_natgw1" {
   subnet_id      = aws_subnet.private_subnet1.id
+  route_table_id = aws_route_table.route_natgw.id
+}
+
+resource "aws_route_table_association" "association_natgw2" {
+  subnet_id      = aws_subnet.private_subnet2.id
   route_table_id = aws_route_table.route_natgw.id
 }
 
