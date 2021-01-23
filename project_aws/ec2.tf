@@ -12,13 +12,19 @@ data "aws_ami" "image_ec2" {
   }
 }
 
+resource "time_sleep" "wait_time" {
+  depends_on      = [aws_route_table_association.association_natgw1, aws_route_table_association.association_natgw2]
+  create_duration = "30s"
+}
+
 resource "aws_instance" "instace_web" {
   ami                    = data.aws_ami.image_ec2.id
   instance_type          = "t2.micro"
-  tags                   = { Name = "instance-web" }
   subnet_id              = aws_subnet.private_subnet1.id
+  iam_instance_profile   = aws_iam_instance_profile.s3_access_profile.id
   user_data              = file("files/apache.sh")
   vpc_security_group_ids = [aws_security_group.fw_web.id]
-  depends_on             = [aws_route_table_association.association_natgw]
+  depends_on             = [time_sleep.wait_time]
+  tags                   = { Name = "instance-web" }
 }
 
