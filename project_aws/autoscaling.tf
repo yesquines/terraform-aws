@@ -3,7 +3,6 @@
 //scale out CPU Utilization < 60%
 resource "aws_launch_configuration" "lc_web" {
   name                 = var.launch_configuration_name
-  name_prefix          = var.lc_name_prefix
   image_id             = data.aws_ami.image_ec2.id
   instance_type        = var.ec2_type
   iam_instance_profile = aws_iam_instance_profile.s3_access_profile.id

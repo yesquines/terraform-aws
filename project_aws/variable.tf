@@ -209,12 +209,6 @@ variable "launch_configuration_name" {
   default     = "lc-web"
 }
 
-variable "lc_name_prefix" {
-  type        = string
-  description = "Define a prefix name in Autoscale instance"
-  default     = "instance-web-"
-}
-
 variable "autoscaling_group" {
   type        = map(any)
   description = "Autoscaling group configurations"
