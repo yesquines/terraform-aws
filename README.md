@@ -1,12 +1,12 @@
 # Terraform AWS
 
-Repository to present a project created using Terraform with the goal to automate resource creation using the AWS platform
+Repository to present a project created using Terraform with the goal of automating resource creation using the AWS platform
 
 * **Dependencies**
   - Terraform v0.14.3
   - AWS Service Account (at the least EC2 and IAM Permissions)
 
-* **How Authenticate on AWS Provider**
+* **How to Authenticate on AWS Provider**
   -  1st Option: Export environment variable:
 
      ```bash
@@ -24,25 +24,25 @@ Repository to present a project created using Terraform with the goal to automat
 
 ## Project AWS
 
-Project to automate the EC2 instance creation under ALB (Application Load Balancer) and configuration a Autoscaling Group. 
+Project to automate the EC2 instance creation under ALB (Application Load Balancer) and to configure a Autoscaling Group. 
 
 * **Resources Provided**
   - **Role**: IAM Role with S3 Access used as instance profile
   - **Network**: 
     - A VPC with two publics subnets and two private subnets 
-    - A Security Group to allow ingress request on port 80 and all egress reqest
-  - **EC2**: Debian instance using a private subnet and provided apache2 by cloud init script.
-  - **Loadbalancer**: Provided a ALB and attached the EC2 Instance.
+    - A Security Group to allow ingress request on port 80 and all egress request
+  - **EC2**: Debian instance using a private subnet and providing apache2 by cloud init script.
+  - **Loadbalancer**: Provides a ALB and attaches the EC2 Instance.
   - **Autoscaling**: 
-    - Create a launch configuration equal the EC2 Configuration 
-    - Configuration the autoscaling group with minimum size of 1 and maximum size of 3 and attached on ALB
-    - Configuration the life cycle policy with the follow metrics:
+    - Creates a launch configuration equal to the EC2 Configuration 
+    - Configures the autoscaling group with minimum size of 1 and maximum size of 3 and attached to ALB
+    - Configures the life cycle policy with the following metrics:
       - Scale Up: CPU > 80%
       - Scale Down: CPU < 60% 
 
 ### Execution
 
-To execute this project and provide the resources is recommended follow the steps below:
+To execute this project and provide the resources it is recommended to follow the steps below:
 
 * Create the environment 
 
@@ -55,11 +55,11 @@ To execute this project and provide the resources is recommended follow the step
   terraform apply #Apply and configure the project resources
   ```
 
-> You can modify the variables configurations using the command: `terraform apply -var key1=value -var key2=value ... -var keyN=value`
+> You can modify the variable configurations using the command: `terraform apply -var key1=value -var key2=value ... -var keyN=value`
 
 * Delete the environment
 
-To finalize and delete all resource, execute the follow command:
+To finalize and delete all resource, execute the following command:
 
   ```bash
   terraform destroy
@@ -67,7 +67,7 @@ To finalize and delete all resource, execute the follow command:
 
 ### INPUTS
 
-See the below table to know about all options defined on variables.tf file
+See the table below to know about all options defined on variables.tf file
 
 Name | Description | Type | Default | 
 :----: | ----------- | :----: | :-------: |
