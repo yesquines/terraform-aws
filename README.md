@@ -75,15 +75,15 @@ region | Set Provide Region | string | us-east-1
 s3_role_name | S3 Access role name | string | s3-access-role
 s3_role_file_path | S3 Role file path (e.g /path/role.json) | string | files/s3_role.json
 s3_policy_name | S3 Access Policy name | string | s3-access-policy
-s3_policy_file_path | S3 Policy file path (e.g /path/policy.json) | files/s3_policy.json
+s3_policy_file_path | S3 Policy file path (e.g /path/policy.json) | string | files/s3_policy.json
 vpc_name | VPC Name | string | vpc-web
 vpc_network | Set a Network to a VPC (e.g 192.168.0.0/16) | string | 192.168.0.0/16
 vpc_enable_dns_hostnames | Enable DNS Hostnames (true/false) | bool | true
 igw_name | Internet Gateway Name | string | igw-web 
 route_igw_name | Internet Gateway Route Name | string | route-igw
 route_default_cidr | Define the CIDR Block to the Internet Gateway and NAT Gateway as default route | string | 0.0.0.0/0
-private_subnet | Define the Private subnet configurations | map(any) | see variables.tf line 70
-public_subnet | Define the Public subnet configurations | map(any) | see variables.tf line 85
+private_subnet | Define the Private subnet configurations | map(any) | see [variables.tf](./project_aws/variable.tf#L70) line 70
+public_subnet | Define the Public subnet configurations | map(any) | see [variables.tf](./project_aws/variable.tf#L85) line 85
 natgw_name | NAT Gateway Name | string | nat-gw
 route_natgw_name | NAT Gateway Route Name | string | route-natgw
 sg_name | Security Group Name | string | fw-web |
@@ -102,8 +102,8 @@ loadbalancer_port  |Load Balancer port to check instances | number | 80
 loadbalancer_protocol | Load Balancer protocol to check instances | string | HTTP
 lb_action_type | LB - Default Action type | string | forward
 launch_configuration_name | Launch Configuration Name | string | lc-web | 
-autoscaling_policy | Autoscaling policy configurations | map(any) | see variables.tf line 224
-autoscaling_alarm | Autoscaling alarm configurations | map(any) | see variables.tf line 241
+autoscaling_policy | Autoscaling policy configurations | map(any) | see [variables.tf](./project_aws/variable.tf#L224) line 224
+autoscaling_alarm | Autoscaling alarm configurations | map(any) | see [variables.tf](./project_aws/variable.tf#241) line 241
 
 ### OUTPUTS 
 
