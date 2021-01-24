@@ -47,8 +47,8 @@ To execute this project and provide the resources it is recommended to follow th
 * Create the environment 
 
   ```bash
-  git clone 
-  cd project_aws
+  git clone https://github.com/yesquines/terraform-aws.git
+  cd terraform-aws/project_aws/
   terraform init #Initialize the Terraform and providers plugins
   terraform validate #Check any modification syntax
   terraform plan #Plan the execution 
