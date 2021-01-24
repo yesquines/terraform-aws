@@ -29,8 +29,8 @@ Project to automate the EC2 instance creation under ALB (Application Load Balanc
 * **Resources Provided**
   - **Role**: IAM Role with S3 Access used as instance profile
   - **Network**: 
-    - A VPC with two publics subnets and two private subnets 
-    - A Security Group to allow ingress request on port 80 and all egress request
+    - A VPC with two publiC subnets and two private subnets 
+    - A Security Group to allow ingress request on port 80 and all egress requests
   - **EC2**: Debian instance using a private subnet and providing apache2 by cloud init script.
   - **Loadbalancer**: Provides a ALB and attaches the EC2 Instance.
   - **Autoscaling**: 
