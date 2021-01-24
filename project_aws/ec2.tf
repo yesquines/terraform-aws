@@ -6,7 +6,7 @@ resource "aws_iam_instance_profile" "s3_access_profile" {
 
 resource "time_sleep" "wait_time" {
   depends_on      = [aws_route_table_association.association_natgw]
-  create_duration = "30s"
+  create_duration = "1m"
 }
 
 resource "aws_instance" "instace_web" {
